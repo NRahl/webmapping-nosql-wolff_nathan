@@ -1,4 +1,30 @@
+body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 3fr 1fr;
+    height: 100%;
+}
+
 .map {
     height: 600px;
-    width: 100%;
+    display: grid;
+    width: 90%;
+    grid-column: 1;
+    grid-row: 1;
  }
+
+#results {
+    display: grid;
+    width: 90%;
+    grid-column: 2;
+    grid-row: 1;
+    overflow: scroll;
+}
+
+form{
+    border-top: 2px solid;
+    margin-top: 50px;
+    display: grid;
+    grid-row: 2;
+    
+}

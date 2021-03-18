@@ -30,3 +30,21 @@ var map = new ol.Map({
       maxZoom: 20
     })
   });
+
+fetch("geo-search-results-json" + window.location.search)
+  .then(function(r) {
+
+    console.log(window.location.search);
+    var string = r.url;
+    var tab = string.split("=");
+    var val_rad = tab[3]
+    var val_lon = tab[1].split("&")[0];
+    var val_lat = tab[2].split("&")[0];
+
+    document.getElementById("val_rad").value = val_rad;
+    document.getElementById("val_lon").value = val_lon;
+    document.getElementById("val_lat").value = val_lat;
+
+    //code to set view
+
+  } );

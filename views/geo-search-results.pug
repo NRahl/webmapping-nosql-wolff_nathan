@@ -6,19 +6,53 @@ html
        script(type="text/javascript", src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js")
    body
 
-     h2 Holy Map
      div(id="map", class="map")
 
-     h1 Résultats
-     div
-       each result in results
+     div(id="results")
+        h1 Résultats
+        div
+          each result in results
+            div
+              h2= result.properties.ins_nom
+              p
+                span Type :
+                span= result.properties.eqt_type
+              p
+                span Localisation :
+                span= result.geometry.coordinates.join(", ")
+
+     br
+
+     form(action = "/geo-search-results", method = "GET")
+         h2 Formulaire carte
          div
-           h2= result.properties.ins_nom
-           p
-             span Type :
-             span= result.properties.eqt_type
-           p
-             span Localisation :
-             span= result.geometry.coordinates.join(", ")
+            label(for = "longitude") Longitude:
+            input(name = "longitude" id = "val_lon" value = 2.585323)
+         br
+         div
+            label(for = "latitude") Latitude:
+            input(name = "latitude" id = "val_lat" value = 48.846797)
+         br
+         div
+            label(for = "radius") Radius:
+            input(name = "radius" id = "val_rad" value = 0.01)
+         br
+         button(type = "submit") Send my data
+
+     form(action = "/geo-search-results-json", method = "GET")
+         h2 Formulaire JSON
+         div
+            label(for = "longitude") Longitude:
+            input(name = "longitude" value = 2.585323)
+         br
+         div
+            label(for = "latitude") Latitude:
+            input(name = "latitude" value = 48.846797)
+         br
+         div
+            label(for = "radius") Radius:
+            input(name = "radius" value = 0.01)
+         br
+         button(type = "submit") Send my data
 
      script(type="text/javascript", src="static/map.js")
