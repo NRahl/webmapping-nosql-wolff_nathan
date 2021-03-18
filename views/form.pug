@@ -1,0 +1,33 @@
+html
+   head
+      title Form Tester
+   body
+      form(action = "/geo-search-results", method = "GET")
+         div
+            label(for = "longitude") Longitude:
+            input(name = "longitude" value = 2.585323)
+         br
+         div
+            label(for = "latitude") Latitude:
+            input(name = "latitude" value = 48.846797)
+         br
+         div
+            label(for = "radius") Radius:
+            input(name = "radius" value = 0.05)
+         br
+         button(type = "submit") Send my data
+
+      form(action = "/geo-search-results-json", method = "GET")
+         div
+            label(for = "longitude") Longitude:
+            input(name = "longitude" value = 2.585323)
+         br
+         div
+            label(for = "latitude") Latitude:
+            input(name = "latitude" value = 48.846797)
+         br
+         div
+            label(for = "radius") Radius:
+            input(name = "radius" value = 0.05)
+         br
+         button(type = "submit") Send my data
