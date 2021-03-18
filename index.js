@@ -46,14 +46,23 @@ app.get('/geo-search-results', function(req, res){
   var latitude = parseFloat(req.query.latitude);
   var longitude = parseFloat(req.query.longitude);
   var radius = parseFloat(req.query.radius);
+
+  var name_filter = req.query.filter;
+  //console.log(name_filter);
+  //console.log(latitude);
  
-  var filter = {};
+  var filter;
+
   if (Math.abs(longitude) > 0.00001 &&
       Math.abs(latitude) > 0.00001 &&
       Math.abs(radius) > 0.00001) {
  
+    filter = {"properties.ins_nom" : {$regex : ".*".concat(name_filter, ".*"), $options : "i"}};
     filter.geometry = { "$geoWithin": { "$center": [ [ longitude, latitude ] , radius ] } };
+    
+    
   }
+
   // console.log("filter", filter, [ longitude, latitude ]);
  
   mydb.collection('equip').find(filter).toArray(function(err, docs) {

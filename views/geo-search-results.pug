@@ -37,6 +37,17 @@ html
             label(for = "radius") Radius:
             input(name = "radius" id = "val_rad" value = 0.01)
          br
+         button(id="update") Use current map center
+         button(id="extent") Use current map extent
+         br
+         div
+            label(for ="checkbox") Bind coordinates to map view
+            input(type='checkbox' name='checkbox' id="check") 
+         br
+         div
+            label(for = "filter") Filter:
+            input(name = "filter" id = "filter")
+         br
          button(type = "submit") Send my data
 
      form(action = "/geo-search-results-json", method = "GET")
