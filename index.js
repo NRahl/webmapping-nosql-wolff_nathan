@@ -1,9 +1,3 @@
-// le app.use : c'est pour les middleware uniquement. ça ne bloque rien. On met d'abord les use puis les get, post ou autre all.
-//app.use ça se superpose les uns sur les autres, pas le app.get et autres...
-
-/*const jsdom = require("jsdom");
-const { JSDOM } = jsdom;*/
-
 var mydb;
 var MongoClient = require('mongodb').MongoClient;
 
